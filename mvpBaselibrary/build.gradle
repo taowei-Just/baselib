@@ -83,8 +83,6 @@ dependencies {
 //    releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$deps.leakcanary_android_no_op"
 //    releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:$deps.leakcanary_android_no_op'
 
-
-
     api "com.arialyy.aria:core:$deps.aria_core"
     annotationProcessor "com.arialyy.aria:compiler:$deps.aria_core"
     api "com.arialyy.aria:ftpComponent:$deps.aria_core"//如果需要使用ftp，请增加该组件

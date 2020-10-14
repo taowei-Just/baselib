@@ -8,6 +8,7 @@ import androidx.multidex.MultiDex;
 import com.arialyy.aria.core.Aria;
 import com.didichuxing.doraemonkit.DoraemonKit;
 import com.tao.logger.log.Logger;
+import com.tao.mvpbaselibrary.app.crash.CrashHandler;
 import com.tao.mvpbaselibrary.basic.manager.lifecycle.LifecycleHandler;
 import com.tao.mvpbaselibrary.basic.manager.lifecycle.LifecycleManager;
 import com.tao.mvpbaselibrary.basic.network.NetworkManager;
@@ -34,6 +35,7 @@ import org.lzh.framework.updatepluginlib.strategy.WifiFirstStrategy;
 
 public abstract class BasicApplication extends Application {
     private String tag;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -48,13 +50,20 @@ public abstract class BasicApplication extends Application {
     }
 
     private void init() {
+        CrashHandler.getExceptionHandler().init(this);
         DoraemonKit.install(this);
         NetworkManager.getInstance().init(this);
-        Logger.init(this);
+        initLogger();
         initDownloadManager();
         initNet();
         initUpdata();
         initLifecycle();
+    }
+
+    private void initLogger() {
+        Logger.init(this);
+        Logger.setEnable(true);
+        Logger.setPriority(Logger.MIN_LOG_PRIORITY);
     }
 
     private void initLeakCanary() {
@@ -62,18 +71,17 @@ public abstract class BasicApplication extends Application {
     }
 
     private void initLifecycle() {
-              registerActivityLifecycleCallbacks(LifecycleHandler.create().setApplicationRunCallback(new LifecycleHandler.Callback() {
-                  @Override
-                  public void inForeground() {
-                      
-                      Logger.e( "inForeground");
-                  }
+        registerActivityLifecycleCallbacks(LifecycleHandler.create().setApplicationRunCallback(new LifecycleHandler.Callback() {
+            @Override
+            public void inForeground() {
+                Logger.i("inForeground");
+            }
 
-                  @Override
-                  public void inBackgound() {
-                      Logger.e( "inBackgound");
-                  }
-              }));
+            @Override
+            public void inBackgound() {
+                Logger.i("inBackgound");
+            }
+        }));
     }
 
     private void initNet() {
