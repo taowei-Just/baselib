@@ -115,9 +115,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     private void handlerException(Thread t, Throwable e, String strCrashLog) {
         if (t == Looper.getMainLooper().getThread()) {
-            Logger.e(" err from main");
+//            Logger.e(" err from main");
         } else {
-            Logger.e(" err from background");
+//            Logger.e(" err from background");
             callOnBackgroundCrash(strCrashLog, e);
         }
     }
