@@ -33,10 +33,10 @@ dependencies {
 //    api project(path: ':logger_lib')
 
     testImplementation "junit:junit:$deps.junit"
-    api "androidx.appcompat:appcompat:$androidx.appcompat"
-    api "androidx.constraintlayout:constraintlayout:$androidx.constraintlayout"
-    api "androidx.coordinatorlayout:coordinatorlayout:$androidx.coordinatorlayout"
-    
+    implementation "androidx.appcompat:appcompat:$androidx.appcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$androidx.constraintlayout"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidx.coordinatorlayout"
+
     androidTestImplementation "androidx.test:runner:$androidx.test_runner"
 
     // butterknife
@@ -58,11 +58,10 @@ dependencies {
     api "com.squareup.okhttp3:okhttp:$deps.okhttp"
     api "com.squareup.okhttp3:logging-interceptor:$deps.okhttp3_logging_interceptor"
     api "com.google.code.gson:gson:$deps.gson"
- 
+
     api "me.yokeyword:fragmentationx:$androidx.fragmentationx"
 
     api "com.tbruyelle.rxpermissions2:rxpermissions:$deps.rxpermissions"
- 
 
     api "com.arialyy.aria:core:$deps.aria_core"
     annotationProcessor "com.arialyy.aria:compiler:$deps.aria_core"
@@ -72,5 +71,11 @@ dependencies {
     api "com.github.taowei-Just:LogApp:$deps.Loglib"
     api "org.lzh.nonview.updateplugin:UpdatePlugin:$deps.UpdatePlugin"
     api "com.android.support:multidex:$deps.multidex"
- 
+
+    api "com.uber.autodispose:autodispose:$androidx.autodispose"
+    api "com.uber.autodispose:autodispose-android:$androidx.autodispose_android"
+    api "com.uber.autodispose:autodispose-android-archcomponents:$androidx.autodispose_android"
+    api "com.uber.autodispose:autodispose-android-archcomponents-test:$androidx.autodispose_android_archcomponents_test"
+
+
 }
