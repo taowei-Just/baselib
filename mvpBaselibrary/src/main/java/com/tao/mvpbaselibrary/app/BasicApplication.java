@@ -3,6 +3,8 @@ package com.tao.mvpbaselibrary.app;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.multidex.MultiDex;
+
 import com.arialyy.aria.core.Aria;
 import com.didichuxing.doraemonkit.DoraemonKit;
 import com.tao.logger.log.Logger;
@@ -31,9 +33,7 @@ import org.lzh.framework.updatepluginlib.model.UpdateParser;
 import org.lzh.framework.updatepluginlib.strategy.WifiFirstStrategy;
 
 public abstract class BasicApplication extends Application {
-
     private String tag;
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -43,8 +43,8 @@ public abstract class BasicApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        MultiDex.install(base);
         initLeakCanary();
-
     }
 
     private void init() {

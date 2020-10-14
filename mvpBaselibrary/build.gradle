@@ -12,6 +12,11 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -20,10 +25,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+
 }
 
 dependencies {
@@ -90,4 +92,5 @@ dependencies {
     api "com.arialyy.aria:m3u8Component:$deps.aria_core" //如果需要使用m3u8下载功能，请增加该组件
     api "com.github.taowei-Just:LogApp:$deps.Loglib"
     api "org.lzh.nonview.updateplugin:UpdatePlugin:$deps.UpdatePlugin"
+    api "com.android.support:multidex:$deps.multidex"
 }
