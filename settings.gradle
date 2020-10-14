@@ -1,0 +1,3 @@
+include ':mvpBaselibrary'
+include ':app'
+rootProject.name = "BaseLib"

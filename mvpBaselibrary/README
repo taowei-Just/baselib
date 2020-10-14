@@ -1,0 +1,54 @@
+使用说明:
+     NetMgr.getInstance().registerProvider(new NetWorkProvider());
+     //获得当前默认的的retrofit
+     NetMgr.getInstance().getDefaultRetrofit();
+
+
+     //注册provider baseUrl 跟extraKey 共同组成 唯一key 作为retrofit 标记，可以实现拿到多个retrofit对象
+     registerProvider(String baseUrl, String extraKey, NetConfigProvider provider)
+     在获取retrofit 的时候确保已经注册Provider
+     getRetrofit(String baseUrl, String extraKey)
+
+在使用的时候需要提供一个NetConfigProvider
+
+可以自己继承 AbstractDefaultNetProvider，
+
+
+主要方法：
+
+    //配置拦截器
+    Interceptor[] configInterceptors();
+    //配置okhttp builder,这个在okhttp创建
+    void configHttps(OkHttpClient.Builder builder);
+    //配置请求factory
+    CallAdapter.Factory configCallFactory();
+    //配置
+    Converter.Factory configConverFactory();
+
+    CookieJar configCookie();
+    //配置处理request response
+    RequestHandler configHandler();
+    //配置基本url
+    String configBaseUrl();
+    //配置链接超时
+    long configConnectTimeoutMills();
+//配置链接超时
+    long configReadTimeoutMills();
+//配置链接超时
+    long configWriteTimeoutMills();
+//配置日志是否显示
+    boolean configLogEnable();
+//配置最大重试次数
+    int configMaxRetry();
+
+
+new RequestHandler
+    实现处理request（增加公共头部等)
+    实现处理request（实现对response操作）
+
+
+
+
+
+
+

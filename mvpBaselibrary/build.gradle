@@ -1,0 +1,93 @@
+apply plugin: 'com.android.library'
+apply plugin: 'realm-android'
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+//    api project(path: ':logger_lib')
+
+    testImplementation "junit:junit:$deps.junit"
+    api "androidx.appcompat:appcompat:$androidx.appcompat"
+    api "androidx.constraintlayout:constraintlayout:$androidx.constraintlayout"
+    api "androidx.coordinatorlayout:coordinatorlayout:$androidx.coordinatorlayout"
+    
+    androidTestImplementation "androidx.test:runner:$androidx.test_runner"
+
+    // butterknife
+    api "com.jakewharton:butterknife:$androidx.butterknife"
+    api "com.jakewharton:butterknife-compiler:$androidx.butterknife_compiler"
+    // eventBus
+    api "org.greenrobot:eventbus:$deps.eventbus"
+
+    // Retrofit库
+    api "com.squareup.retrofit2:retrofit:$deps.retrofit"
+    // gson库
+    api "com.squareup.retrofit2:converter-gson:$deps.converter_gson"
+    // Retrofit中的rxjava adapter
+    api "com.squareup.retrofit2:adapter-rxjava2:$deps.adapter_rxjava2"
+    //rxjava and rxandroid
+    api "io.reactivex.rxjava2:rxjava:$deps.rxjava"
+    api "io.reactivex.rxjava2:rxandroid:$deps.rxandroid"
+    // okhttp
+    api "com.squareup.okhttp3:okhttp:$deps.okhttp"
+    api "com.squareup.okhttp3:logging-interceptor:$deps.okhttp3_logging_interceptor"
+    api "com.google.code.gson:gson:$deps.gson"
+
+//    // 自动解绑
+//    implementation "com.uber.autodispose:autodispose:$deps.autodispose"
+//    implementation "com.uber.autodispose:autodispose-android-archcomponents:$deps.autodispose_android_archcomponents"
+
+    api "me.yokeyword:fragmentationx:$androidx.fragmentationx"
+
+    api "com.tbruyelle.rxpermissions2:rxpermissions:$deps.rxpermissions"
+
+
+//    api 'com.arialyy.aria:core:3.8.14'
+//    annotationProcessor 'com.arialyy.aria:compiler:3.8.14'
+//    api 'com.arialyy.aria:ftpComponent:3.8.14'//如果需要使用ftp，请增加该组件
+//    api 'com.arialyy.aria:sftpComponent:3.8.14' //如果需要使用ftp，请增加该组件
+//    api 'com.arialyy.aria:m3u8Component:3.8.14' //如果需要使用m3u8下载功能，请增加该组件
+//
+//    api "org.lzh.nonview.updateplugin:UpdatePlugin:2.4"
+
+    debugApi "com.didichuxing.doraemonkit:doraemonkit:$androidx.doraemonkit"
+    releaseApi "com.didichuxing.doraemonkit:doraemonkit-no-op:$androidx.doraemonkit_no_op"
+
+    api "com.squareup.leakcanary:leakcanary-android:$deps.leakcanary_android"
+//    releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$deps.leakcanary_android_no_op"
+//    releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:$deps.leakcanary_android_no_op'
+
+
+
+    api "com.arialyy.aria:core:$deps.aria_core"
+    annotationProcessor "com.arialyy.aria:compiler:$deps.aria_core"
+    api "com.arialyy.aria:ftpComponent:$deps.aria_core"//如果需要使用ftp，请增加该组件
+    api "com.arialyy.aria:sftpComponent:$deps.aria_core" //如果需要使用ftp，请增加该组件
+    api "com.arialyy.aria:m3u8Component:$deps.aria_core" //如果需要使用m3u8下载功能，请增加该组件
+    api "com.github.taowei-Just:LogApp:$deps.Loglib"
+    api "org.lzh.nonview.updateplugin:UpdatePlugin:$deps.UpdatePlugin"
+}

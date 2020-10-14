@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TriangleView">
+        <attr name="draw_color" format="color"/>
+        <attr name="direction">
+            <enum name="left" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="right" value="2"/>
+            <enum name="bottom" value="3"/>
+            <enum name="rightbottom" value="4"/>
+            <enum name="righttop" value="5"/>
+            <enum name="leftbottom" value="6"/>
+            <enum name="lefttop" value="7"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="Basic_MultipleStatusView">
+        <attr name="basic_loadingView" format="reference" />
+        <attr name="basic_errorView" format="reference" />
+        <attr name="basic_emptyView" format="reference" />
+        <attr name="basic_noNetworkView" format="reference" />
+        <attr name="basic_contentView" format="reference" />
+        <attr name="basic_noLoginView" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="Basic_CircleMultipleProgressView">
+
+        <attr name="basic_circle_multiple_max" format="integer" />
+        <!--//分号隔开-->
+        <attr name="basic_circle_multiple_progress" format="string" />
+        <!--//分号隔开-->
+        <attr name="basic_circle_multiple_stroke_width" format="string" />
+        <!--//分号隔开 1代表从左边画 -->
+        <attr name="basic_circle_multiple_direction" format="string" />
+        <!--分号隔开 1代表需要 1;0;1-->
+        <attr name="basic_circle_multiple_round_is_need" format="string" />
+
+        <!--分号隔开-->
+        <attr name="basic_circle_multiple_starting_degree" format="string" />
+        <!--分号隔开-->
+        <attr name="basic_circle_multiple_color" format="string" />
+        <attr name="basic_circle_multiple_is_fill" format="string" />
+
+    </declare-styleable>
+    <declare-styleable name="RoundImageView">
+        <attr name="round_type" format="enum">
+            <enum name="circle" value="1" />
+            <enum name="round" value="2" />
+        </attr>
+        <attr name="round_radius" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="Basic_RoundView">
+        <attr name="basic_bgRound" format="color"/>
+        <attr name="basic_radiusRound" format="dimension"/>
+        <attr name="basic_topLeftRadius" format="dimension"/>
+        <attr name="basic_topRightRadius" format="dimension"/>
+        <attr name="basic_bottomLeftRadius" format="dimension"/>
+        <attr name="basic_bottomRightRadius" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="Basic_FlowLayout">
+        <attr name="basic_divider_row" format="reference|dimension"/>
+        <attr name="basic_divider_column" format="reference|dimension"/>
+    </declare-styleable>
+
+
+
+    <declare-styleable name="Basic_CircleProgressView">
+        <attr name="basic_circle_progress" format="integer" />
+        <attr name="basic_circle_max" format="integer" />
+
+        <attr name="basic_circle_unfinished_color" format="color" />
+        <attr name="basic_circle_finished_color" format="color" />
+
+        <attr name="basic_circle_text_size" format="dimension" />
+        <attr name="basic_circle_text_color" format="color" />
+
+        <attr name="basic_circle_prefix_text" format="string" />
+        <attr name="basic_circle_suffix_text" format="string" />
+
+
+        <attr name="basic_circle_finished_stroke_width" format="dimension" />
+        <attr name="basic_circle_unfinished_stroke_width" format="dimension" />
+
+        <attr name="basic_circle_text" format="string" />
+
+        <attr name="basic_circle_background_color" format="color" />
+
+        <attr name="basic_circle_inner_bottom_text" format="string" />
+        <attr name="basic_circle_inner_bottom_text_size" format="dimension" />
+        <attr name="basic_circle_inner_bottom_text_color" format="color" />
+
+        <attr name="basic_circle_circle_starting_degree" format="integer" />
+        <attr name="basic_circle_show_text" format="boolean" />
+        <attr name="basic_circle_inner_drawable" format="reference" />
+    </declare-styleable>
+
+</resources>

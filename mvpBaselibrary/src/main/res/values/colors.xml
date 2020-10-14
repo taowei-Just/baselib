@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#00ffffff</color>
+    <color name="white_90_transparent">#17ffffff</color>
+    <color name="white_70_transparent">#4cffffff</color>
+    <color name="black_40_transparent">#66000000</color>
+    <color name="black_70_transparent">#4c000000</color>
+    <color name="black_30_transparent">#a3000000</color>
+    <color name="black_50_transparent">#80000000</color>
+    <color name="black_80_transparent">#33000000</color>
+    <color name="common_main_text_color">#333333</color>
+
+    <color name="status_bar_default_color">#FFFFFF</color>
+
+</resources>
