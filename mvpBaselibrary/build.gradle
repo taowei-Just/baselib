@@ -67,7 +67,6 @@ dependencies {
 
     api "com.tbruyelle.rxpermissions2:rxpermissions:$deps.rxpermissions"
 
-
 //    api 'com.arialyy.aria:core:3.8.14'
 //    annotationProcessor 'com.arialyy.aria:compiler:3.8.14'
 //    api 'com.arialyy.aria:ftpComponent:3.8.14'//如果需要使用ftp，请增加该组件
@@ -76,12 +75,15 @@ dependencies {
 //
 //    api "org.lzh.nonview.updateplugin:UpdatePlugin:2.4"
 
-    debugApi "com.didichuxing.doraemonkit:doraemonkit:$androidx.doraemonkit"
-    releaseApi "com.didichuxing.doraemonkit:doraemonkit-no-op:$androidx.doraemonkit_no_op"
+//    debugImplementation ("com.didichuxing.doraemonkit:doraemonkit:$androidx.doraemonkit"){
+//        exclude group: 'com.squareup.leakcanary'
+//    }
+//    releaseImplementation  ("com.didichuxing.doraemonkit:doraemonkit-no-op:$androidx.doraemonkit_no_op")
+//    {
+//        exclude group: 'com.squareup.leakcanary'
+//    }
 
-    api "com.squareup.leakcanary:leakcanary-android:$deps.leakcanary_android"
-//    releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$deps.leakcanary_android_no_op"
-//    releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:$deps.leakcanary_android_no_op'
+//    debugImplementation "com.squareup.leakcanary:leakcanary-android:$deps.leakcanary_android"
 
     api "com.arialyy.aria:core:$deps.aria_core"
     annotationProcessor "com.arialyy.aria:compiler:$deps.aria_core"
@@ -91,4 +93,8 @@ dependencies {
     api "com.github.taowei-Just:LogApp:$deps.Loglib"
     api "org.lzh.nonview.updateplugin:UpdatePlugin:$deps.UpdatePlugin"
     api "com.android.support:multidex:$deps.multidex"
+
+//    debugApi("com.squareup.leakcanary:leakcanary-android:$rootProject.leak_canary_version") {
+//        exclude group: 'com.squareup.okio'
+//    }
 }

@@ -6,11 +6,9 @@ import android.content.Context;
 import androidx.multidex.MultiDex;
 
 import com.arialyy.aria.core.Aria;
-import com.didichuxing.doraemonkit.DoraemonKit;
 import com.tao.logger.log.Logger;
 import com.tao.mvpbaselibrary.app.crash.CrashHandler;
 import com.tao.mvpbaselibrary.basic.manager.lifecycle.LifecycleHandler;
-import com.tao.mvpbaselibrary.basic.manager.lifecycle.LifecycleManager;
 import com.tao.mvpbaselibrary.basic.network.NetworkManager;
 import com.tao.mvpbaselibrary.lekcanary.LeakCanaryHelper;
 import com.tao.mvpbaselibrary.lib_http.retrofit.AbstractDefaultNetProvider;
@@ -51,7 +49,6 @@ public abstract class BasicApplication extends Application {
 
     private void init() {
         CrashHandler.getExceptionHandler().init(this);
-        DoraemonKit.install(this);
         NetworkManager.getInstance().init(this);
         initLogger();
         initDownloadManager();

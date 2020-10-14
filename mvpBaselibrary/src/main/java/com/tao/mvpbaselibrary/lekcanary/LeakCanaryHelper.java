@@ -11,8 +11,8 @@ public class LeakCanaryHelper {
     }
 
     public static void witch(Object o) {
-        if (canaryWrapper == null)
-            canaryWrapper.watch(o);
+//        if (canaryWrapper == null)
+//            canaryWrapper.watch(o);
     }
 
     public static LeakCanaryWrapperImpl getLeakCanary(Context context) {
