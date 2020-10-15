@@ -5,7 +5,7 @@ import android.content.Context;
 
 import androidx.multidex.MultiDex;
 
-import com.arialyy.aria.core.Aria;
+
 import com.tao.logger.log.Logger;
 import com.tao.mvpbaselibrary.app.crash.CrashHandler;
 import com.tao.mvpbaselibrary.basic.manager.lifecycle.LifecycleHandler;
@@ -58,7 +58,6 @@ public abstract class BasicApplication extends Application {
         NetworkManager.getInstance().init(this);
         initLogger();
         initNet();
-        initDownloadManager();
         initUpdata();
         initLifecycle();
     }
@@ -155,11 +154,6 @@ public abstract class BasicApplication extends Application {
     }
 
 
-    /**
-     * 初始化下载配置
-     */
-    private void initDownloadManager() {
-        Aria.init(this);
-    }
+ 
 
 }
