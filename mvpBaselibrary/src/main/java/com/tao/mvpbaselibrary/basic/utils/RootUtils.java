@@ -106,7 +106,7 @@ public class RootUtils {
      * 为app申请root权限
      */
     public static boolean grantRoot(Context context) {
-        return ShellUtils.execWithRoot("chmod 777 " + context.getPackageCodePath())>-1;
+        return ShellUtils.execWithRoot("chmod 777 " + context.getPackageCodePath())==0;
     }
 
 }

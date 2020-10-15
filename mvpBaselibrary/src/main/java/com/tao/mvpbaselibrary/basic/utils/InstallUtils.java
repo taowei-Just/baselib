@@ -95,10 +95,11 @@ public class InstallUtils {
     }
 
 
-    public static void installApk(Context context, String apkPath) {
+    public static int installApk(Context context, String apkPath) {
         if (!RootUtils.checkRoot() || RootUtils.grantRoot(context)) {
-            int exec = ShellUtils.execWithRoot("pm install -r "+context.getPackageName()+"--user 0 \"" + apkPath + "\"");
-            return;
+            int exec = ShellUtils.execWithRoot("pm install -r " + apkPath);
+            if (exec == 0)
+                return exec;
         }
 
         File file = new File(apkPath);
@@ -112,6 +113,7 @@ public class InstallUtils {
         }
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
+        return 0;
     }
 
     /**
@@ -124,7 +126,7 @@ public class InstallUtils {
     }
 
 
-    public static boolean installApp(Context context, String apkPath) {
+    private static boolean installApp(Context context, String apkPath) {
         Process process = null;
         BufferedReader successResult = null;
         BufferedReader errorResult = null;
@@ -163,4 +165,16 @@ public class InstallUtils {
         return successMsg.toString().equalsIgnoreCase("success");
     }
 
+    public static int unInstallApp(Context context, String packageName) {
+        if (!RootUtils.checkRoot() || RootUtils.grantRoot(context)) {
+            int exec = ShellUtils.execWithRoot("pm uninstall  " + packageName);
+            if (exec == 0)
+                return exec;
+        }
+        Uri uri = Uri.fromParts("package", packageName, null);
+        Intent intent = new Intent(Intent.ACTION_DELETE, uri);
+        context.startActivity(intent);
+        return 0;
+
+    }
 }
