@@ -77,7 +77,6 @@ dependencies {
     api "com.uber.autodispose:autodispose-android-archcomponents:$androidx.autodispose_android"
     api "com.uber.autodispose:autodispose-android-archcomponents-test:$androidx.autodispose_android_archcomponents_test"
     
-    debugApi "com.didichuxing.doraemonkit:doraemonkit:$androidx.doraemonkit"
-    releaseApi  "com.didichuxing.doraemonkit:doraemonkit-no-op:$androidx.doraemonkit_no_op"
+
 
 }

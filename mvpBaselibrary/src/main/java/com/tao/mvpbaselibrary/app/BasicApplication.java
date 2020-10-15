@@ -6,7 +6,6 @@ import android.content.Context;
 import androidx.multidex.MultiDex;
 
 import com.arialyy.aria.core.Aria;
-import com.didichuxing.doraemonkit.DoraemonKit;
 import com.tao.logger.log.Logger;
 import com.tao.mvpbaselibrary.app.crash.CrashHandler;
 import com.tao.mvpbaselibrary.basic.manager.lifecycle.LifecycleHandler;
@@ -53,7 +52,6 @@ public abstract class BasicApplication extends Application {
 
     private void init() {
         ToastUtil.init(this);
-        DoraemonKit.install(this);
         AppUtils.init(this);
         initRxjavaCatch();
         CrashHandler.getExceptionHandler().init(this);
