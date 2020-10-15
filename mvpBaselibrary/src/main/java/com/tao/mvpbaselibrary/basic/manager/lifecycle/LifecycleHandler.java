@@ -58,7 +58,7 @@ public class LifecycleHandler implements Application.ActivityLifecycleCallbacks 
     @Override
     public void onActivityStopped(Activity activity) {
         ++stopped;
-        android.util.Log.w("test", "application is visible: " + (started > stopped));
+        Logger.i("application is visible: " + (started > stopped));
     }
 
 

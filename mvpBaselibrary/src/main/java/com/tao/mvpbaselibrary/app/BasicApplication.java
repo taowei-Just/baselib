@@ -6,11 +6,13 @@ import android.content.Context;
 import androidx.multidex.MultiDex;
 
 import com.arialyy.aria.core.Aria;
+import com.didichuxing.doraemonkit.DoraemonKit;
 import com.tao.logger.log.Logger;
 import com.tao.mvpbaselibrary.app.crash.CrashHandler;
 import com.tao.mvpbaselibrary.basic.manager.lifecycle.LifecycleHandler;
 import com.tao.mvpbaselibrary.basic.network.NetworkManager;
-import com.tao.mvpbaselibrary.lekcanary.LeakCanaryHelper;
+import com.tao.mvpbaselibrary.basic.utils.AppUtils;
+import com.tao.mvpbaselibrary.basic.utils.ToastUtil;
 import com.tao.mvpbaselibrary.lib_http.retrofit.AbstractDefaultNetProvider;
 import com.tao.mvpbaselibrary.lib_http.retrofit.NetMgr;
 import com.tao.mvpbaselibrary.lib_http.retrofit.RequestHandler;
@@ -31,8 +33,11 @@ import org.lzh.framework.updatepluginlib.model.Update;
 import org.lzh.framework.updatepluginlib.model.UpdateParser;
 import org.lzh.framework.updatepluginlib.strategy.WifiFirstStrategy;
 
+import io.reactivex.functions.Consumer;
+import io.reactivex.plugins.RxJavaPlugins;
+
 public abstract class BasicApplication extends Application {
-    private String tag;
+    private String tag =getClass().getSimpleName();
 
     @Override
     public void onCreate() {
@@ -44,17 +49,29 @@ public abstract class BasicApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(base);
-        initLeakCanary();
     }
 
     private void init() {
+        ToastUtil.init(this);
+        DoraemonKit.install(this);
+        AppUtils.init(this);
+        initRxjavaCatch();
         CrashHandler.getExceptionHandler().init(this);
         NetworkManager.getInstance().init(this);
         initLogger();
-        initDownloadManager();
         initNet();
+        initDownloadManager();
         initUpdata();
         initLifecycle();
+    }
+
+    private void initRxjavaCatch() {
+        RxJavaPlugins.setErrorHandler(new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                Logger.e("Rxjava gloable catch ",throwable);
+            }
+        });
     }
 
     private void initLogger() {
@@ -62,10 +79,7 @@ public abstract class BasicApplication extends Application {
         Logger.setEnable(true);
         Logger.setPriority(Logger.MIN_LOG_PRIORITY);
     }
-
-    private void initLeakCanary() {
-        LeakCanaryHelper.init();
-    }
+ 
 
     private void initLifecycle() {
         registerActivityLifecycleCallbacks(LifecycleHandler.create().setApplicationRunCallback(new LifecycleHandler.Callback() {

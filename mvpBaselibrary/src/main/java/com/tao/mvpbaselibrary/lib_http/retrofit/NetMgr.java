@@ -51,7 +51,7 @@ public class NetMgr {
     }
 
 
-    public <S> S get(String baseUrl, Class<S> service) {
+    public <S> S getApi(String baseUrl, Class<S> service) {
         return getInstance().getRetrofit(baseUrl).create(service);
     }
 

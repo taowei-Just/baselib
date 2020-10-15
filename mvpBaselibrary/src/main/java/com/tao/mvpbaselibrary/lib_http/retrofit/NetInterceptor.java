@@ -31,10 +31,14 @@ public class NetInterceptor implements Interceptor {
 
     public NetInterceptor(NetConfigProvider provider) {
         this.defaultProvider = provider;
-
     }
 
-
+    /**
+     * 拦截器
+     * @param chain
+     * @return
+     * @throws IOException
+     */
     @Override
     public Response intercept(@NonNull Chain chain) throws IOException {
 
